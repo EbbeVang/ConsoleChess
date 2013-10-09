@@ -25,6 +25,16 @@ namespace ConsoleChess
 
             }
 
+            fillChessBoard(chessBoard);
+
+
+            presentChessBoard(chessBoard);
+
+           // Console.WriteLine(view(ChessPiece.Castle));
+        }
+
+        private static void fillChessBoard(ChessPiece[,] chessBoard)
+        {
             //FILL CHESSBOARD WITH PIECES
             chessBoard[0, 0] = ChessPiece.Castle;
             chessBoard[0, 1] = ChessPiece.Horse;
@@ -45,7 +55,7 @@ namespace ConsoleChess
                 chessBoard[6, i] = ChessPiece.Pawn;
             }
 
-            chessBoard[7,0]=ChessPiece.Castle;
+            chessBoard[7, 0] = ChessPiece.Castle;
             chessBoard[7, 1] = ChessPiece.Horse;
             chessBoard[7, 2] = ChessPiece.Bishop;
             chessBoard[7, 3] = ChessPiece.Queen;
@@ -53,30 +63,30 @@ namespace ConsoleChess
             chessBoard[7, 5] = ChessPiece.Bishop;
             chessBoard[7, 6] = ChessPiece.Horse;
             chessBoard[7, 7] = ChessPiece.Castle;
+        }
 
-
+        private static void presentChessBoard(ChessPiece[,] chessBoard)
+        {
             //PRINT CHESSBOARD
             Console.WriteLine("-----------------------------------------");
-            for(int i = 0;i<8;i++)
+            for (int i = 0; i < 8; i++)
             {
                 Console.Write("| ");
                 for (int j = 0; j < 8; j++)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write(view(chessBoard[i,j]));
+                    Console.Write(view(chessBoard[i, j]));
                     Console.ForegroundColor = ConsoleColor.White;
 
                     Console.Write(" | ");
-                 
+
                 }
                 Console.WriteLine();
                 Console.WriteLine("-----------------------------------------");
             }
-
-           // Console.WriteLine(view(ChessPiece.Castle));
         }
         
-        public static String view(ChessPiece myEnum)
+        private static String view(ChessPiece myEnum)
         {
             if (myEnum == ChessPiece.Empty) return "  ";
             return myEnum.ToString().Substring(0, 2);
