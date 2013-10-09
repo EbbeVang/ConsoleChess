@@ -1,0 +1,6 @@
+c:\users\ebva.rhs\documents\visual studio 2012\Projects\ConsoleChess\ConsoleChess\bin\Debug\ConsoleChess.exe.config
+c:\users\ebva.rhs\documents\visual studio 2012\Projects\ConsoleChess\ConsoleChess\obj\Debug\ConsoleChess.csprojResolveAssemblyReference.cache
+c:\users\ebva.rhs\documents\visual studio 2012\Projects\ConsoleChess\ConsoleChess\bin\Debug\ConsoleChess.exe
+c:\users\ebva.rhs\documents\visual studio 2012\Projects\ConsoleChess\ConsoleChess\bin\Debug\ConsoleChess.pdb
+c:\users\ebva.rhs\documents\visual studio 2012\Projects\ConsoleChess\ConsoleChess\obj\Debug\ConsoleChess.exe
+c:\users\ebva.rhs\documents\visual studio 2012\Projects\ConsoleChess\ConsoleChess\obj\Debug\ConsoleChess.pdb
