@@ -8,6 +8,8 @@ namespace ConsoleChess
 {
     class Program
     {
+        private static ChessPiece[,] chessBoard = new ChessPiece[8, 8];
+        
         static void Main(string[] args)
         {
             // if you don't want to use enums you can use constants
@@ -15,26 +17,57 @@ namespace ConsoleChess
             //Console.WriteLine(KING);
             
             //creATE CHESSBOARD
-            ChessPiece[,] chessBoard = new ChessPiece[8,8];
+            
+           
+
+            fillChessBoard(chessBoard);
+
+            presentChessBoard(chessBoard);
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+                string from = input.Substring(0, 2);
+                string to = input.Substring(2, 2);
+                Console.WriteLine("from: {0}", from);
+                Console.WriteLine("to: {0}", to);
+                makeMove(from, to);
+
+                presentChessBoard(chessBoard);
+            }}
+
+            public static Boolean makeMove(string from, string to)
+            {
+                int fromNummber = Convert.ToInt32( from.Substring(1,1))-1;
+                int fromLetter = Convert.ToChar(from.Substring(0, 1))-1;
+                fromLetter -= 96;
+
+                int toNumber = Convert.ToInt32(to.Substring(1,1))-1;
+                int toLetter = Convert.ToChar(to.Substring(0,1))-1;
+                toLetter -= 96;
+                Console.WriteLine(toLetter);
+                chessBoard[toLetter, toNumber] = chessBoard[fromLetter, fromNummber];
+                chessBoard[fromLetter, fromNummber] = ChessPiece.Empty;
+
+                return true;
+
+                
+            }
+
+           // Console.WriteLine(view(ChessPiece.Castle));
+        
+
+        private static void fillChessBoard(ChessPiece[,] chessBoard)
+        {
             for (int i = 0; i < 8; i++)
             {
-                for (int j = 0; j<8; j++)
+                for (int j = 0; j < 8; j++)
                 {
                     chessBoard[i, j] = ChessPiece.Empty;
                 }
 
             }
 
-            fillChessBoard(chessBoard);
-
-
-            presentChessBoard(chessBoard);
-
-           // Console.WriteLine(view(ChessPiece.Castle));
-        }
-
-        private static void fillChessBoard(ChessPiece[,] chessBoard)
-        {
             //FILL CHESSBOARD WITH PIECES
             chessBoard[0, 0] = ChessPiece.Castle;
             chessBoard[0, 1] = ChessPiece.Horse;
@@ -68,9 +101,18 @@ namespace ConsoleChess
         private static void presentChessBoard(ChessPiece[,] chessBoard)
         {
             //PRINT CHESSBOARD
-            Console.WriteLine("-----------------------------------------");
             for (int i = 0; i < 8; i++)
             {
+                Console.Write("   "+(i+1));
+            }
+            Console.WriteLine();
+
+            
+            Console.WriteLine(" ---------------------------------");
+            for (int i = 0; i < 8; i++)
+            
+            {
+                Console.Write(Convert.ToChar(97+i));
                 Console.Write("| ");
                 for (int j = 0; j < 8; j++)
                 {
@@ -82,14 +124,14 @@ namespace ConsoleChess
 
                 }
                 Console.WriteLine();
-                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine(" ---------------------------------");
             }
         }
         
         private static String view(ChessPiece myEnum)
         {
-            if (myEnum == ChessPiece.Empty) return "  ";
-            return myEnum.ToString().Substring(0, 2);
+            if (myEnum == ChessPiece.Empty) return " ";
+            return myEnum.ToString().Substring(0, 1);
         }
 
         
